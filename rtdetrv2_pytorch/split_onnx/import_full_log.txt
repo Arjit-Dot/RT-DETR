@@ -1,0 +1,36 @@
+2026-07-04 20:20:30.886930: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2026-07-04 20:20:30.887280: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+[32mI 20:20:32 Namespace(import='onnx', input_dtype_list=None, input_size_list='1,3,640,640', inputs='images', model='/workspace/backbone_final.onnx', output_data='backbone.data', output_model='backbone.json', outputs='feat0 feat1 feat2', size_with_batch=None, which='import')[0m
+[32mI 20:20:32 Set vsinn project dir to /workspace[0m
+2026-07-04 20:20:32.448183: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2026-07-04 20:20:32.448322: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2026-07-04 20:20:32.448409: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (329ccdf1acda): /proc/driver/nvidia/version does not exist
+[32mI 20:20:32 Start importing onnx...[0m
+[32mI 20:20:32 Current ONNX Model use ir_version 6 opset_version 11[0m
+[32mI 20:20:32 try optimize eliminate_option_const ...[0m
+[32mI 20:20:32 Call acuity onnx optimize 'eliminate_option_const' success[0m
+[32mI 20:20:32 try optimize froze_if ...[0m
+[32mI 20:20:32 Call acuity onnx optimize 'froze_if' success[0m
+[32mI 20:20:32 try optimize merge_sequence_construct_concat_from_sequence ...[0m
+[32mI 20:20:32 Call acuity onnx optimize 'merge_sequence_construct_concat_from_sequence' success[0m
+[32mI 20:20:32 try optimize merge_lrn_lowlevel_implement ...[0m
+[32mI 20:20:32 Call acuity onnx optimize 'merge_lrn_lowlevel_implement' success[0m
+[32mI 20:20:32 try optimize merge_splittosequence_sequenceat ...[0m
+[32mI 20:20:32 Call acuity onnx optimize 'merge_splittosequence_sequenceat' success[0m
+Traceback (most recent call last):
+  File "/root/acuity-toolkit-whl-6.30.22/bin/pegasus.py", line 131, in <module>
+    main(args)
+  File "/root/acuity-toolkit-whl-6.30.22/bin/pegasus.py", line 112, in main
+    ret = importer.execute(args)
+  File "acuitylib/app/importer/commands.py", line 253, in acuitylib.app.importer.commands.execute
+  File "acuitylib/vsi_nn.py", line 122, in acuitylib.vsi_nn.VSInn.load_onnx
+  File "acuitylib/interface/importer.py", line 149, in acuitylib.interface.importer.OnnxLoader.load
+  File "acuitylib/app/importer/import_onnx.py", line 106, in acuitylib.app.importer.import_onnx.Importonnx.run
+  File "acuitylib/converter/onnx/convert_onnx.py", line 73, in acuitylib.converter.onnx.convert_onnx.OnnxLoader.__init__
+  File "acuitylib/converter/onnx/convert_onnx.py", line 124, in acuitylib.converter.onnx.convert_onnx.OnnxLoader.__shape_inference
+  File "acuitylib/onnx_ir/onnx_numpy_backend/shape_inference.py", line 188, in acuitylib.onnx_ir.onnx_numpy_backend.shape_inference.OnnxShapeInference.infer_shape
+  File "acuitylib/onnx_ir/onnx_numpy_backend/smart_graph_engine.py", line 106, in acuitylib.onnx_ir.onnx_numpy_backend.smart_graph_engine.smart_engine.smart_onnx_scanner
+  File "acuitylib/onnx_ir/onnx_numpy_backend/smart_node.py", line 51, in acuitylib.onnx_ir.onnx_numpy_backend.smart_node.smart_node_driver.calc_and_assign_smart_info
+  File "acuitylib/onnx_ir/onnx_numpy_backend/smart_toolkit.py", line 1591, in acuitylib.onnx_ir.onnx_numpy_backend.smart_toolkit.ShapeComputation.conv_shape
+  File "acuitylib/onnx_ir/onnx_numpy_backend/smart_toolkit.py", line 1565, in acuitylib.onnx_ir.onnx_numpy_backend.smart_toolkit.ShapeComputation._conv_shape
+IndexError: list index out of range
